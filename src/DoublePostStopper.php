@@ -129,12 +129,9 @@ class DoublePostStopper
 
         loadLanguage('ManageBoards+DoublePostStopper');
         $dps = new self;
-        $dps->groups = array_merge(
-            [-1 => $txt['parent_guests_only']],
-            $dps->getGroups()
-        );
+        $dps->groups = [-1 => $txt['parent_guests_only']] + $dps->getGroups();
         $dps->thresholds = array_fill_keys(array_keys($dps->groups), $dps->thresholds);
-        $dps->thresholds = $dps->getThresholds();
+        $dps->thresholds = array_replace($dps->thresholds, $dps->getThresholds());
         $config_vars = array_merge(
             $config_vars,
             [
