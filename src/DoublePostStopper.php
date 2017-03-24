@@ -194,7 +194,7 @@ class DoublePostStopper
                 <tr class="standard_row">
                     <td>', $name, '</td>
                     <td>
-                        <input type="int" value="', $dps->thresholds[$id]['threshold'], '" name="doublePostThresholds[', $id, '][threshold]" size="2" maxlength="2" min="0" />
+                        <input type="number" value="', $dps->thresholds[$id]['threshold'], '" name="doublePostThresholds[', $id, '][threshold]" max="60" min="0" />
                         <select name="doublePostThresholds[', $id, '][unit]">
                             <option value="m" ', $dps->thresholds[$id]['unit'] == 'm' ? 'selected' : '', '>', $txt['minutes'], '</option>
                             <option value="h" ', $dps->thresholds[$id]['unit'] == 'h' ? 'selected' : '', '>', $txt['hours'], '</option>
