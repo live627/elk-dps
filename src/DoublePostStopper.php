@@ -94,7 +94,7 @@ class DoublePostStopper
                     $this->getThresholds()
                 ),
                 array_flip($user_info['groups'])
-            )
+            ) ?: [0]
         );
     }
 
