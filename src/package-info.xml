@@ -3,24 +3,26 @@
 <package-info xmlns="http://www.elkarte.net/site/package-info">
     <id>live627:DoublePostStopper</id>
     <name>Double Post Stopper</name>
-    <version>1.0</version>
+    <version>1.1</version>
     <type>modification</type>
 
-    <install for="1.0 - 1.0.99">
+    <install for="1.1 - 1.1.99">
         <readme parsebbc="true">install.txt</readme>
         <hook hook="integrate_pre_load" file="SUBSDIR/DoublePostStopper.php" function="DoublePostStopper::registerAll"/>
         <require-file name="DoublePostStopper.php" destination="SUBSDIR"/>
         <require-file name="DoublePostStopper.english.php" destination="LANGUAGEDIR/english"/>
+        <require-file name="DoublePostStopper.italian.php" destination="LANGUAGEDIR/italian"/>
         <redirect url="?action=admin;area=addonsettings"/>
     </install>
 
-    <uninstall for="1.0 - 1.0.99">
+    <uninstall for="1.1 - 1.1.99">
         <readme parsebbc="true">uninstall.txt</readme>
         <database>uninstall-optional.php</database>
         <hook reverse="true" hook="integrate_pre_load" file="SUBSDIR/DoublePostStopper.php"
               function="DoublePostStopper::registerAll"/>
         <remove-file name="SUBSDIR/DoublePostStopper.php"/>
         <remove-file name="LANGUAGEDIR/english/DoublePostStopper.english.php"/>
+        <remove-file name="LANGUAGEDIR/italian/DoublePostStopper.italian.php"/>
     </uninstall>
 
 </package-info>
