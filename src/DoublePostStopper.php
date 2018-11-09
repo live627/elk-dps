@@ -119,7 +119,7 @@ class DoublePostStopper
         // I'm lazy.
         if (!empty($topic) && (new self)->check() && !isset($_REQUEST['msg'])) {
             loadLanguage('DoublePostStopper');
-            fatal_lang_error('double_post_attempt', false); // You naughty, naughty person!
+            \Errors::instance()->fatal_lang_error('double_post_attempt', false); // You naughty, naughty person!
         }
     }
 
