@@ -136,7 +136,7 @@ class DoublePostStopper
             $config_vars,
             [
                 [
-                    isset($_GET['save']) ? 'text' : 'callback',
+                    'callback',
                     'doublePostThresholds',
                 ],
             ]
@@ -169,7 +169,14 @@ class DoublePostStopper
     public static function saveSettings()
     {
         if (isset($_POST['doublePostThresholds'])) {
-            $_POST['doublePostThresholds'] = json_encode($_POST['doublePostThresholds']);
+            $settingsForm = new Settings_Form(Settings_Form::DB_ADAPTER);
+            $settingsForm->setConfigVars(
+                [[
+                    'text',
+                    'doublePostThresholds',
+                ]]);
+            $settingsForm->setConfigValues(['doublePostThresholds' => json_encode($_POST['doublePostThresholds'])]);
+            $settingsForm->save();
         }
     }
 
